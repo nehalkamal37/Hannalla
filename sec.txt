@@ -1,0 +1,161 @@
+Here are the main sections extracted from the document, along with their relevant data:
+
+1. About Us
+Established for over 30 years.
+Specialized in electrical design, development, and construction.
+Expertise in new projects and refurbishing existing plants.
+Services include:
+Front-end engineering design
+Due diligence and independent reviews
+Process and infrastructure design
+Technical studies
+EPCM project deliveries
+Cost estimation and financial analysis
+2. Mission
+Providing cost-effective engineering and construction management.
+Focus on safety, reliability, and operational efficiency.
+Core mission: Delivering trusted, high-quality engineering solutions in the energy sector.
+
+3. Vision
+Building trusted relationships with clients.
+Operating with integrity, honesty, and accountability.
+Prioritizing efficient and cost-effective solutions.
+4. Values
+Integrity
+Accountability
+Reliability
+Efficiency
+Quality
+Safety
+Innovation
+Collaboration
+Customizable Solutions
+
+5. Main Titles of Consultancy
+Consultant for Rutherford & Appleton (UK, Nuclear Energy).
+Consultant for Ain Shams University & Specialized Hospital (1987–2012).
+Consultant for Ministry of Scientific Research & Mubarak City.
+Consultant for National Authority for Potable Water and Sewage.
+Consultant for Maadi Sports Club (2008–2014).
+
+
+Projects Overview
+A. International Projects
+Rutherford Appleton Laboratory (UK, 1978–1979)
+Design of Nuclear Accelerators & High Energy Physics Magnets.
+Rome University (Italy, 1985)
+Solving Nuclear Power Station problems.
+Designing Smart Industrial Protection Systems.
+GE Canada
+Consulting on High-Efficiency Motors with Windsor College.
+B. Local Projects
+1. Strategic Projects
+Cairo Metro (Underground)
+Design & Supervision for Substations & Backup Power Systems.
+City of Scientific Research & Technological Applications
+Electrical network, telephones, elevators, HVAC, lighting, and fire alarms.
+Kalyoub City Strategic Plan
+Design for electrical works (City size: 1018 km², 4.2M population).
+National Drinking Water & Sewage Authority
+SCADA system upgrades & problem-solving for drinking water.
+Petroleum Pipeline (Cairo–Assiut)
+Cathodic protection for buried pipelines.
+Agrarian Reform Authority
+Electrical network, theater, cinema, fire alarm, and generators.
+Garbage Transformation to Fertilizer (Zagazig)
+Automated production lines & electrical systems.
+2. Governmental Buildings
+Egyptian Presidential Building
+Electrical design & supervision.
+Ministry of Justice
+Electrical substations & backup power.
+Central Traffic Department
+Diesel generators in Cairo, Giza, and Alexandria.
+Artillery Officers House (Armed Forces)
+Electrical systems for event halls.
+3. Compounds & Hotels
+Ain Shams Faculty Compound (North Coast)
+600 residential units, hotel, pools, mosque, market, etc.
+Long Beach Compound (North Coast)
+250 residential units.
+Sonesta Hotel Cairo
+Energy efficiency study & network revision.
+4. Other Buildings
+Hearing & Speech Institute (Imbaba)
+Super sound insulation for speech rooms.
+Abo El Feda Tower
+Electromechanical maintenance.
+CEDARE (Heliopolis)
+External electrical network design.
+5. Banks
+Suez Canal Bank (Garden City)
+CIB Bank (Ghernata Branch)
+Agricultural Bank of Egypt (New Cairo & Downtown)
+National Investment Bank (Smart Village & Bab El Louk)
+All include:
+
+Electrical network
+Transformers
+Generators
+Lighting & fire alarm
+CCTV & security systems
+6. Factories
+BMW Factory (6th of October)
+Electrical network for car production lines.
+Alpha Factory for Metals & Plastic
+Lighting & power networks.
+Gayed Tex (Obour City)
+Spinning & polyester factories with power networks.
+El Masala Factory (Cables & Accessories)
+7. Museums
+Mahmoud Khalil Museum (Cairo)
+Preservation of artwork (Zahret El Khsohkhash painting).
+Gezira Museum & Islamic Ceramics Museum
+Saffron Palace (King Farouk’s Palace)
+Preserving sculptures & electrical infrastructure.
+8. Hospitals
+Ain Shams Specialized Hospital
+Substations, operation rooms, and hospital extensions.
+Saint George Hospital, Demerdash Hospital, Matareyya Hospital.
+Damanhour Teaching Hospital Extension (900 beds).
+Ayoub Hospital (Nasr City).
+All projects include:
+
+Lighting & electricity distribution
+Fire alarms & HVAC
+Generators & transformers
+ICU & X-ray labs
+9. Universities
+Misr University for Science & Technology (MUST)
+Ain Shams University (Multiple faculties)
+Electrical substations
+Lighting & fire safety
+Elevators & standby generators
+CCTV & network cabling
+
+
+
+Founder: Dr. Adel Hannalla
+Professor of Electrical Power & Machines – Ain Shams University.
+Degrees:
+B.Sc. Electrical Engineering (Ain Shams, 1967).
+M.Sc. Electrical Power Engineering (Ain Shams, 1969).
+Diploma & PhD (Imperial College, London, 1975).
+Member of IEEE (USA) & IEE (UK) since 1975.
+Contact Information
+Address: 12 El Khalifa El Maamoon St., Heliopolis, Cairo, Egypt.
+Phone: +20222592348 / +2022572509.
+Mobile: +201063965222 / +20101488002.
+Fax: +20224517275.
+
+
+
+Next Steps for Website Design
+From this structure, the website can be divided into the following sections:
+
+Homepage (Company Introduction & Mission).
+About Us (Company history, vision, values).
+Projects (Divided into International, Local, Governmental, etc.).
+Services (Consultancy & Engineering Services).
+Founder’s Bio (Dr. Adel Hannalla).
+Contact Us (Address, phone, email).
