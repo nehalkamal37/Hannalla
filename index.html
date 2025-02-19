@@ -27,8 +27,10 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-</head>
+
+
 
 <body class="index-page">
 
@@ -41,12 +43,15 @@
 
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+20 22259 2348 </span></i>
         </div>
+       
+        <!--
         <div class="social-links d-none d-md-flex align-items-center">
           <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
           <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
           <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
           <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
+      -->
       </div>
     </div>
     <!-- End Top Bar -->
@@ -59,6 +64,12 @@
           <img src="assets/img/logo.png" alt="Logo" style="width: auto; height: auto; max-width: 100%;">
 
 <style>
+  body{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  color: var(--default-color);
+}
 img {
     image-rendering: crisp-edges;
     image-rendering: -webkit-optimize-contrast;
@@ -87,26 +98,43 @@ img {
 
     </div>
 
+
+
+  
+
   </header>
 
-  <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
+  <!-- new  -->
+  
+  
+  
+  
+  <main class="main" class="index-page">
+   
+    
+<!-- Hero Section -->
+<section id="hero" class="hero section light-background">
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
+        <h1 class="responsive-heading">Welcome to <span>Hannalla Consultancy</span></h1>
+        <p></p>
+        <div class="d-flex">
+          <!-- Get Started Button -->
+          <a href="#about" class="btn-get-started">Get Started</a>
 
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-            <h1 class="responsive-heading" >Welcome to <span>Hannalla Consultancy</span></h1>
-            <p></p>
-            <div class="d-flex">
-              <a href="#about" class="btn-get-started">Get Started</a>
-            </div>
-          </div>
+          <!-- Download Document Button -->
+          <a href="assets/docs/Hannalla CV English_rev 18 (1).docx" download="Hannalla_Consultancy_Document.docx" class="btn btn-light ms-3">
+            Download Company Profile
+          </a>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-    </section><!-- /Hero Section -->
+
 <style>
   .responsive-heading {
   white-space: nowrap;
@@ -422,101 +450,235 @@ img {
       </div>
     </section><!-- /Projects Overview Section -->
 
-    
-    
-    <body class="bg-gray-100 font-sans">
-    
-        <div class="container mx-auto py-10 px-6">
-            <!-- Header -->
-            <h1 class="text-3xl font-bold text-center text-gray-800">Projects Overview</h1>
-            <p class="text-center text-gray-500 mt-2">Select a category to explore achievements</p>
-    
-            <!-- Category Selection -->
-            <div class="flex justify-center mt-6">
-                <select id="categorySelect" onchange="showAchievements()" class="px-4 py-3 w-80 text-lg border rounded-lg shadow-md focus:ring-2 focus:ring-blue-500">
-                    <option value="">-- Select Category --</option>
-                    <option value="international">🌍 International Projects</option>
-                    <option value="local">🏗️ Local Projects</option>
-                    <option value="government">🏛️ Government & Infrastructure</option>
-                    <option value="healthcare">🏥 Healthcare & Hospitals</option>
-                    <option value="industrial">🏭 Factories & Industrial Projects</option>
-                    <option value="museums">🖼️ Museums & Cultural Projects</option>
-                    <option value="banking">🏦 Banking & Financial Institutions</option>
-                    <option value="special">⚙️ Special Infrastructure Projects</option>
-                </select>
-            </div>
-    
-            <!-- Achievements Grid -->
-            <div id="achievementsContainer" class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
-                <!-- Achievements will be inserted here dynamically -->
-            </div>
-        </div>
-    
-        <script>
-            const achievementsData = {
-                international: [
-                    "Rutherford Appleton Laboratory (UK) - Nuclear Accelerators",
-                    "Rome University (Italy) - Nuclear Power Solutions",
-                    "GE Canada - High-Efficiency Motors Consultation"
-                ],
-                local: [
-                    "Cairo Metro - Substations & Standby Power Systems",
-                    "City of Scientific Research - Electrical Network & Fire Alarms",
-                    "Strategic Planning for Kalyoub City - Electrical Works"
-                ],
-                government: [
-                    "Egypt Presidential Building - Electrical Design",
-                    "Ministry of Justice - Electric Substation & Backup Generators",
-                    "National Traffic Department - Diesel Generator Backup"
-                ],
-                healthcare: [
-                    "Ain Shams Hospital - ICU Electrical Setup",
-                    "Damanhour Teaching Hospital - 900-bed Electrical Infrastructure",
-                    "Matareyya Hospital - Electrical Renovations"
-                ],
-                industrial: [
-                    "BMW Factory - Car Production Line Power",
-                    "Alpha Factory for Plastics - Electrical Network & Lighting",
-                    "Gayed Tex Factory - 5.3 MW Electrical Capacity"
-                ],
-                museums: [
-                    "Mahmoud Khalil Museum - Artwork Electrical Protection",
-                    "Gezira Museum - Electrical Installations",
-                    "Saffron Palace (King Farouk) - Monument Electrical Preservation"
-                ],
-                banking: [
-                    "Suez Canal Bank - Electrical & Security Supervision",
-                    "CIB Bank - Electrical Network Upgrades",
-                    "Agricultural Bank of Egypt - CCTV & Power Installations"
-                ],
-                special: [
-                    "Hearing & Speech Institute - Soundproof Rooms",
-                    "Abo El Feda Tower - Electrical Automation",
-                    "CEDARE - External Electrical Network Design"
-                ]
-            };
-    
-            function showAchievements() {
-                const category = document.getElementById("categorySelect").value;
-                const container = document.getElementById("achievementsContainer");
-    
-                container.innerHTML = "";
-    
-                if (category && achievementsData[category]) {
-                    achievementsData[category].forEach(achievement => {
-                        let card = document.createElement("div");
-                        card.className = "bg-white p-6 rounded-lg shadow-lg text-center transition hover:scale-105";
-                        card.innerHTML = `<p class="text-lg font-semibold text-gray-700">${achievement}</p>`;
-                        container.appendChild(card);
-                    });
-                    container.classList.remove("hidden");
-                } else {
-                    container.classList.add("hidden");
-                }
-            }
-        </script>
-    </body>
+  
+
    
+    <body class="bg-gray-100 font-sans">
+
+      <div class="container mx-auto py-10 px-6">
+          <!-- Header -->
+          <h1 class="text-3xl font-bold text-center text-gray-800">Projects Overview</h1>
+          <p class="text-center text-gray-500 mt-2">Select a category to explore achievements</p>
+  
+          <!-- Category Selection -->
+          <div class="flex justify-center mt-6">
+              <select id="categorySelect" onchange="showAchievements()" class="px-4 py-3 w-80 text-lg border rounded-lg shadow-md focus:ring-2 focus:ring-blue-500">
+                  <option value="">-- Select Category --</option>
+                  <option value="international">🌍 International Projects</option>
+                  <option value="local">🏗️ Local Projects</option>
+                  <option value="government">🏛️ Government & Infrastructure</option>
+                  <option value="healthcare">🏥 Healthcare & Hospitals</option>
+                  <option value="industrial">🏭 Factories & Industrial Projects</option>
+                  <option value="museums">🖼️ Museums & Cultural Projects</option>
+                  <option value="banking">🏦 Banking & Financial Institutions</option>
+                  <option value="special">⚙️ Special Infrastructure Projects</option>
+              </select>
+          </div>
+  
+          <!-- Achievements Grid -->
+          <div id="achievementsContainer" class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 hidden">
+              <!-- Achievements will be inserted here dynamically -->
+          </div>
+      </div>
+  
+      <script>
+       const achievementsData = {
+    international: [
+        { 
+            name: "Rutherford Appleton Laboratory (UK) - Nuclear Accelerators", 
+            details: "Developing high-energy physics magnets and nuclear accelerator systems, Rutherford Appleton Laboratory 1978-1979 Consultant for design of Nuclear Accelerators ( High Engine Physics Magnets) ",
+            img: "1.jpg" 
+        },
+        { 
+            name: "Rome University (Italy) - Nuclear Power Solutions", 
+            details: "Implementing innovative nuclear power station safety measures , 1985 Solving Problems for Nuclear Power Station in Italy and designing protection with Smart industrial Intelligence",
+            img: "2.jpg" 
+        },
+        { 
+            name: "GE Canada - High-Efficiency Motors Consultation", 
+            details: "Consultation on high-efficiency industrial motor technologies,19 Consultant for GE Candada in design of special high efficiency motors in Coordination with Windsor College Canada",
+            img: "3.jpg" 
+        }
+    ],
+    local: [
+        { 
+            name: "Cairo Metro - Substations & Standby Power Systems", 
+            details: "Ensuring reliable backup power systems for metro stations,Strategic Projects: Designed and supervised Cairo Metro substations, ensuring emergency power for key stations and loads, including backup generators, control units, cables, and protection systems.",
+            img: "4.jpg" 
+        },
+        { 
+            name: "City of Scientific Research - Electrical Network & Fire Alarms", 
+            details: "Upgrading the electrical infrastructure for research facilities,City of Scientific Research: Designed and supervised electrical systems for Mubarak City, including power networks, telecom, elevators, HVAC power, transformers, backup generators, lighting, and fire alarms.",
+            img: "5.jpg" 
+        },
+        { 
+            name: "Strategic Planning for Kalyoub City - Electrical Works", 
+            details: "Comprehensive electrical planning for urban development,Design For Electrical works in the strategic Planning for Kalyoub City Kalyoub City is 1018 KM2 With population 4.2 Million people which represents 23.2% of the capital Cairo Population.",
+            img: "6.jpg" 
+        }
+    ],
+    government: [
+        { 
+            name: "Egypt Presidential Building - Electrical Design", 
+            details: "Electrical planning and implementation for government headquarters,Revision of Design & Supervision over installation for electrical work in the presidential building ",
+            img: "7.jpg" 
+        },
+        { 
+            name: "Ministry of Justice - Electric Substation & Backup Generators", 
+            details: "Providing sustainable and efficient power solutions,Design of Electric Substation with Back Up Diesel Generator sets",
+            img: "8.jpg" 
+        },
+        { 
+            name: "National Traffic Department - Diesel Generator Backup", 
+            details: "Ensuring power continuity for critical infrastructure,( Egypt Vehicle registration ) Design for back up diesel generator units in all branches across:Cairo Giza Alexandria.",
+            img: "9.jpg" 
+        }
+    ],
+    healthcare: [
+        { 
+            name: "Ain Shams Hospital - ICU Electrical Setup", 
+            details: "Optimizing power for ICU and emergency units,A)	Design & Supervision over installation for: a.	The hospital’s main substation which included: 1-transformers 2-Medium Voltage 3-Control 4-Generators",
+            img: "10.jpg" 
+        },
+        { 
+            name: "Damanhour Teaching Hospital - 900-bed Electrical Infrastructure", 
+            details: "Design and supervison over installation of all electrical systems in the hospital which includes but not limited to: •	Lighting •	Elevators •	Fire Alarm •	Central Air Conditioning •	X-ray Labs •	Intensive Care Units •	Distribution Electricity Network •	Generators",
+            img: "11.jpg" 
+        },
+        { 
+            name: "Matareyya Hospital - Electrical Renovations", 
+            details: "Upgrading electrical safety systems for improved care,Design for renovation of all electrical works inside the hospital",
+            img: "12.jpg" 
+        }
+    ],
+    industrial: [
+        { 
+            name: "BMW Factory - Car Production Line Power", 
+            details: "Providing power solutions for automated manufacturing,Design and Supervision over Installation for all electrical network for car line production",
+            img: "13.jpg" 
+        },
+        { 
+            name: "Alpha Factory for Plastics - Electrical Network & Lighting", 
+            details: "Enhancing lighting and power efficiency in industrial settings,Design for all electrical network and lighting",
+            img: "14.jpg" 
+        },
+        { 
+            name: "Gayed Tex Factory - 5.3 MW Electrical Capacity", 
+            details: "Ensuring stable power for large-scale textile production,design and Supervision over Installation for all electrical power network, lighting, transformers and Emergency back Up Generators The Factory Electrical Capacity 4 Mwatt",
+            img: "15.jpg" 
+        }
+    ],
+    museums: [
+        { 
+            name: "Mahmoud Khalil Museum - Artwork Electrical Protection", 
+            details: "Preserving valuable artwork with specialized electrical systems,Design And Supervision over installation for all electrical works and safety Measures The Musuem os famous for the well known painting of Zahret El Khsohkhash",
+            img: "16.jpg" 
+        },
+        { 
+            name: "Gezira Museum - Electrical Installations", 
+            details: "Modernizing museum electrical infrastructure,revision of Design And Supervision over installation for all electrical works",
+            img: "17.jpg" 
+        },
+        { 
+            name: "Saffron Palace (King Farouk) - Monument Electrical Preservation", 
+            details: "Implementing safe electrical conservation for historic buildings,The palace is considered a Monument dated back to 1985 which needed extra work to preserve the sculptures and paintings Design and Supervision over Installation for all Electrical City Systems ",
+            img: "18.jpg" 
+        }
+    ],
+    banking: [
+        { 
+            name: "Suez Canal Bank - Electrical & Security Supervision", 
+            details: "Providing security-enhanced electrical solutions,design and Supervision over Installation for the Low Voltage works which included: •	Electrical Network •	Network Cables •	Elevators •	Central Air Conditioning Units Power Feeding •	Lighting system",
+            img: "19.jpg" 
+        },
+        { 
+            name: "CIB Bank - Electrical Network Upgrades", 
+            details: "Ensuring stable and efficient banking power systems,design and Supervision over Installation for the Low Voltage works which included: •	Electrical Network •	Network Cables •	Elevators •	Central Air Conditioning Units Power Feeding •	Lighting system",
+            img: "20.jpg" 
+        },
+        { 
+            name: "Agricultural Bank of Egypt - CCTV & Power Installations", 
+            details: "Integrating security systems with electrical infrastructure, Administrative Branch-New Cairo: A)Design and Supervision over Installation for all electrical works which included: •	Electrical Network •	Network Cables •	Elevators  B)Agricultural Bank of Egypt-Administrative Branch-Al Kasr Al Eeiny -Downtown:",
+            img: "21.jpg" 
+        }
+    ],
+    special: [
+        { 
+            name: "Hearing & Speech Institute - Soundproof Rooms", 
+            details: "Specialized electrical design for sound-sensitive environments,Design and Supervision over Installation for Speech rooms with Super Sound Insulation",
+            img: "22.jpg" 
+        },
+        { 
+            name: "Abo El Feda Tower - Electrical Automation", 
+            details: "Implementing smart building automation solutions,Design and Supervision over Installation for the maintenance plan for the all electromechanical ",
+            img: "23.jpg" 
+        },
+        { 
+            name: "CEDARE - External Electrical Network Design", 
+            details: "Engineering large-scale external power networks,design and Supervision over Installation for external electric networks:1-	Network Cables 2-	Telephone Network 3-	Transformers 4-	 Lighting 5-	Standby Generator units in case of power outage",
+         img:"24.jpg"  
+        }
+    ]
+};
+
+function showAchievements() {
+    const category = document.getElementById("categorySelect").value;
+    const container = document.getElementById("achievementsContainer");
+
+    container.innerHTML = ""; // Clear previous content
+
+    if (category && achievementsData[category]) {
+        achievementsData[category].forEach(project => {
+            let card = document.createElement("div");
+            card.className = "bg-white p-6 rounded-lg shadow-lg text-center transition hover:scale-105";
+
+            // Project Name
+            let projectName = document.createElement("p");
+            projectName.className = "text-lg font-semibold text-gray-700";
+            projectName.textContent = project.name;
+
+            // Small Text for Project Details
+            let projectDetails = document.createElement("p");
+            projectDetails.className = "text-sm text-gray-500 mt-2";
+            projectDetails.textContent = project.details;
+
+            // Project Image (Ensure Correct Path)
+            let projectImg = document.createElement("img");
+            projectImg.src = `assets/img/projects/${project.img}`; // ✅ Correct path
+            projectImg.alt = '';
+            projectImg.onerror=null
+            projectImg.className = "mt-4 w-full h-40 object-cover rounded-lg";
+
+// ✅ If the image fails to load, show the logo instead
+projectImg.onerror = function () {
+    this.onerror = null; // Prevent infinite loop
+    this.src = "assets/img/logo.png"; // ✅ Use logo as fallback
+};
+
+            // Debugging: Check if Image Loads
+            console.log("Loading Image:", projectImg.src);
+            projectImg.onerror = function() {
+                console.error("Image failed to load:", this.src);
+            };
+
+            // Append elements to the card
+            card.appendChild(projectName);
+            card.appendChild(projectDetails); // ✅ Small text before image
+            card.appendChild(projectImg);
+
+            // Append card to container
+            container.appendChild(card);
+        });
+
+        container.classList.remove("hidden");
+    } else {
+        container.classList.add("hidden");
+    }
+}
+
+      </script>
+  </body>
+  
       <!-- Founder Section -->
     <section id="founder" class="founder section light-background">
       <div class="container section-title text-center" data-aos="fade-up">
@@ -746,7 +908,6 @@ img {
 
   </footer>
 -->
-
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

@@ -1,16 +1,28 @@
-/**
-* Template Name: BizLand
-* Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #121212;
+    --default-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --accent-color: #bb86fc;
+    --surface-color: #1e1e1e;
+    --contrast-color: #ffffff;
+    --nav-color: #e0e0e0;
+    --nav-hover-color: #bb86fc;
+    --nav-mobile-background-color: #1e1e1e;
+    --nav-dropdown-background-color: #1e1e1e;
+    --nav-dropdown-color: #e0e0e0;
+    --nav-dropdown-hover-color: #bb86fc;
+  }
+}
+
+
+
 /* Fonts */
+
+
+
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Montserrat",  sans-serif;

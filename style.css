@@ -1,0 +1,24 @@
+/* Light Mode (Default) */
+body, .header, .topbar, .navmenu ,.about{
+    background-color: white;
+    color: black;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+.dark body,
+.dark .header,
+.dark .topbar,
+.dark .navmenu {
+    background-color: #1a202c !important;
+    color: #f7fafc !important;
+}
+
+.dark a {
+    color: #f7fafc !important;
+}
+
+.dark button {
+    background-color: #f7fafc !important;
+    color: #1a202c !important;
+}
