@@ -39,7 +39,7 @@
       <div class="container d-flex justify-content-center justify-content-md-between">
         <div class="contact-info d-flex align-items-center">
         <!--  <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com"></a></i>-->
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>  +1 901 6970 621 </span></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>  +20 10 63965222 </span></i>
 
           <i class="bi bi-phone d-flex align-items-center ms-4"><span>+20 22259 2348 </span></i>
         </div>
@@ -408,7 +408,33 @@ img {
 
 
   
-   
+   <!-- Modal -->
+<!-- Modal Overlay (click outside to close) -->
+<div id="popupModal" class="fixed inset-0 bg-black margin-bottom:-55 bg-opacity-50 z-50 flex items-center justify-center hidden"
+     onclick="closeModal()">
+
+  <!-- Modal Container (stops event bubbling) -->
+  <div class="relative w-full max-w-2xl mx-auto" onclick="event.stopPropagation()">
+
+    <!-- Close Button -->
+    <button onclick="closeModal()"
+      class="absolute top-2 right-2 text-white bg-gray-800 hover:bg-red-600 rounded-full w-8 h-8 text-xl z-50">
+      &times;
+    </button>
+
+    <!-- Modal Content -->
+    <div class="bg-white rounded-lg shadow-lg max-h-[90vh] overflow-y-auto p-6">
+      <h2 id="modalTitle" class="text-xl font-bold mb-3"></h2>
+      <img id="modalImage" src="" alt="" class="w-full h-48 object-cover rounded mb-3" />
+      <div id="modalDetails" class="text-gray-700 text-sm space-y-2"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+
     <body class="bg-gray-100 font-sans">
 
       <div class="container mx-auto py-10 px-6">
@@ -420,14 +446,14 @@ img {
           <div class="flex justify-center mt-6">
               <select id="categorySelect" onchange="showAchievements()" class="px-4 py-3 w-80 text-lg border rounded-lg shadow-md focus:ring-2 focus:ring-blue-500">
                   <option value="">-- Select Category --</option>
-                  <option value="international">🌍 International Projects</option>
-                  <option value="local">🏗️ Local Projects</option>
-                  <option value="government">🏛️ Government & Infrastructure</option>
-                  <option value="healthcare">🏥 Healthcare & Hospitals</option>
-                  <option value="industrial">🏭 Factories & Industrial Projects</option>
-                  <option value="museums">🖼️ Museums & Cultural Projects</option>
-                  <option value="banking">🏦 Banking & Financial Institutions</option>
-                  <option value="universities">🏫 Universities & Educational Institutions</option>
+                  <option value="international"> International Projects</option>
+                  <option value="local"> Local Projects</option>
+                  <option value="government"> Government & Infrastructure</option>
+                  <option value="healthcare"> Healthcare & Hospitals</option>
+                  <option value="industrial"> Factories & Industrial Projects</option>
+                  <option value="museums"> Museums & Cultural Projects</option>
+                  <option value="banking"> Banking & Financial Institutions</option>
+                  <option value="universities"> Universities & Educational Institutions</option>
                 </select>
           </div>
   
@@ -437,463 +463,837 @@ img {
           </div>
       </div>
   
-      <script>
-        /*
-       const achievementsData = {
-    international: [
-        { 
-            name: "Rutherford Appleton Laboratory (UK) - Nuclear Accelerators", 
-            details: "Developing high-energy physics magnets and nuclear accelerator systems, Rutherford Appleton Laboratory 1978-1979 Consultant for design of Nuclear Accelerators ( High Engine Physics Magnets) ",
-            img: "1.jpg" 
-        },
-        { 
-            name: "Rome University (Italy) - Nuclear Power Solutions", 
-            details: "Implementing innovative nuclear power station safety measures , 1985 Solving Problems for Nuclear Power Station in Italy and designing protection with Smart industrial Intelligence",
-            img: "2.jpg" 
-        },
-        { 
-            name: "GE Canada - High-Efficiency Motors Consultation", 
-            details: "Consultation on high-efficiency industrial motor technologies,19 Consultant for GE Candada in design of special high efficiency motors in Coordination with Windsor College Canada",
-            img: "3.jpg" 
-        }
-    ],
-    local: [
-        { 
-            name: "Cairo Metro - Substations & Standby Power Systems", 
-            details: "Ensuring reliable backup power systems for metro stations,Strategic Projects: Designed and supervised Cairo Metro substations, ensuring emergency power for key stations and loads, including backup generators, control units, cables, and protection systems.",
-            img: "4.jpg" 
-        },
-        { 
-            name: "City of Scientific Research - Electrical Network & Fire Alarms", 
-            details: "Upgrading the electrical infrastructure for research facilities,City of Scientific Research: Designed and supervised electrical systems for Mubarak City, including power networks, telecom, elevators, HVAC power, transformers, backup generators, lighting, and fire alarms.",
-            img: "5.jpg" 
-        },
-        { 
-            name: "Strategic Planning for Kalyoub City - Electrical Works", 
-            details: "Comprehensive electrical planning for urban development,Design For Electrical works in the strategic Planning for Kalyoub City Kalyoub City is 1018 KM2 With population 4.2 Million people which represents 23.2% of the capital Cairo Population.",
-            img: "6.jpg" 
-        }
-    ],
-    government: [
-        { 
-            name: "Egypt Presidential Building - Electrical Design", 
-            details: "Electrical planning and implementation for government headquarters,Revision of Design & Supervision over installation for electrical work in the presidential building ",
-            img: "7.jpg" 
-        },
-        { 
-            name: "Ministry of Justice - Electric Substation & Backup Generators", 
-            details: "Providing sustainable and efficient power solutions,Design of Electric Substation with Back Up Diesel Generator sets",
-            img: "8.jpg" 
-        },
-        { 
-            name: "National Traffic Department - Diesel Generator Backup", 
-            details: "Ensuring power continuity for critical infrastructure,( Egypt Vehicle registration ) Design for back up diesel generator units in all branches across:Cairo Giza Alexandria.",
-            img: "9.jpg" 
-        }
-    ],
-    healthcare: [
-        { 
-            name: "Ain Shams Hospital - ICU Electrical Setup", 
-            details: "Optimizing power for ICU and emergency units,A)	Design & Supervision over installation for: a.	The hospital’s main substation which included: 1-transformers 2-Medium Voltage 3-Control 4-Generators",
-            img: "10.jpg" 
-        },
-        { 
-            name: "Damanhour Teaching Hospital - 900-bed Electrical Infrastructure", 
-            details: "Design and supervison over installation of all electrical systems in the hospital which includes but not limited to: •	Lighting •	Elevators •	Fire Alarm •	Central Air Conditioning •	X-ray Labs •	Intensive Care Units •	Distribution Electricity Network •	Generators",
-            img: "11.jpg" 
-        },
-        { 
-            name: "Matareyya Hospital - Electrical Renovations", 
-            details: "Upgrading electrical safety systems for improved care,Design for renovation of all electrical works inside the hospital",
-            img: "12.jpg" 
-        }
-    ],
-    industrial: [
-        { 
-            name: "BMW Factory - Car Production Line Power", 
-            details: "Providing power solutions for automated manufacturing,Design and Supervision over Installation for all electrical network for car line production",
-            img: "13.jpg" 
-        },
-        { 
-            name: "Alpha Factory for Plastics - Electrical Network & Lighting", 
-            details: "Enhancing lighting and power efficiency in industrial settings,Design for all electrical network and lighting",
-            img: "14.jpg" 
-        },
-        { 
-            name: "Gayed Tex Factory - 5.3 MW Electrical Capacity", 
-            details: "Ensuring stable power for large-scale textile production,design and Supervision over Installation for all electrical power network, lighting, transformers and Emergency back Up Generators The Factory Electrical Capacity 4 Mwatt",
-            img: "15.jpg" 
-        }
-    ],
-    museums: [
-        { 
-            name: "Mahmoud Khalil Museum - Artwork Electrical Protection", 
-            details: "Preserving valuable artwork with specialized electrical systems,Design And Supervision over installation for all electrical works and safety Measures The Musuem os famous for the well known painting of Zahret El Khsohkhash",
-            img: "16.jpg" 
-        },
-        { 
-            name: "Gezira Museum - Electrical Installations", 
-            details: "Modernizing museum electrical infrastructure,revision of Design And Supervision over installation for all electrical works",
-            img: "17.jpg" 
-        },
-        { 
-            name: "Saffron Palace (King Farouk) - Monument Electrical Preservation", 
-            details: "Implementing safe electrical conservation for historic buildings,The palace is considered a Monument dated back to 1985 which needed extra work to preserve the sculptures and paintings Design and Supervision over Installation for all Electrical City Systems ",
-            img: "18.jpg" 
-        }
-    ],
-    banking: [
-        { 
-            name: "Suez Canal Bank - Electrical & Security Supervision", 
-            details: "Providing security-enhanced electrical solutions,design and Supervision over Installation for the Low Voltage works which included: •	Electrical Network •	Network Cables •	Elevators •	Central Air Conditioning Units Power Feeding •	Lighting system",
-            img: "19.jpg" 
-        },
-        { 
-            name: "CIB Bank - Electrical Network Upgrades", 
-            details: "Ensuring stable and efficient banking power systems,design and Supervision over Installation for the Low Voltage works which included: •	Electrical Network •	Network Cables •	Elevators •	Central Air Conditioning Units Power Feeding •	Lighting system",
-            img: "20.jpg" 
-        },
-        { 
-            name: "Agricultural Bank of Egypt - CCTV & Power Installations", 
-            details: "Integrating security systems with electrical infrastructure, Administrative Branch-New Cairo: A)Design and Supervision over Installation for all electrical works which included: •	Electrical Network •	Network Cables •	Elevators  B)Agricultural Bank of Egypt-Administrative Branch-Al Kasr Al Eeiny -Downtown:",
-            img: "21.jpg" 
-        }
-    ],
-    special: [
-        { 
-            name: "Hearing & Speech Institute - Soundproof Rooms", 
-            details: "Specialized electrical design for sound-sensitive environments,Design and Supervision over Installation for Speech rooms with Super Sound Insulation",
-            img: "22.jpg" 
-        },
-        { 
-            name: "Abo El Feda Tower - Electrical Automation", 
-            details: "Implementing smart building automation solutions,Design and Supervision over Installation for the maintenance plan for the all electromechanical ",
-            img: "23.jpg" 
-        },
-        { 
-            name: "CEDARE - External Electrical Network Design", 
-            details: "Engineering large-scale external power networks,design and Supervision over Installation for external electric networks:1-	Network Cables 2-	Telephone Network 3-	Transformers 4-	 Lighting 5-	Standby Generator units in case of power outage",
-         img:"24.jpg"  
-        }
-    ]
-};
-
-function showAchievements() {
-    const category = document.getElementById("categorySelect").value;
-    const container = document.getElementById("achievementsContainer");
-
-    container.innerHTML = ""; // Clear previous content
-
-    if (category && achievementsData[category]) {
-        achievementsData[category].forEach(project => {
-            let card = document.createElement("div");
-            card.className = "bg-white p-6 rounded-lg shadow-lg text-center transition hover:scale-105";
-
-            // Project Name
-            let projectName = document.createElement("p");
-            projectName.className = "text-lg font-semibold text-gray-700";
-            projectName.textContent = project.name;
-
-            // Small Text for Project Details
-            let projectDetails = document.createElement("p");
-            projectDetails.className = "text-sm text-gray-500 mt-2";
-            projectDetails.textContent = project.details;
-
-            // Project Image (Ensure Correct Path)
-            let projectImg = document.createElement("img");
-            projectImg.src = `assets/img/projects/${project.img}`; // ✅ Correct path
-            projectImg.alt = '';
-            projectImg.onerror=null
-            projectImg.className = "mt-4 w-full h-40 object-cover rounded-lg";
-
-// ✅ If the image fails to load, show the logo instead
-projectImg.onerror = function () {
-    this.onerror = null; // Prevent infinite loop
-    this.src = "assets/img/logo.png"; // ✅ Use logo as fallback
-};
-
-            // Debugging: Check if Image Loads
-            console.log("Loading Image:", projectImg.src);
-            projectImg.onerror = function() {
-                console.error("Image failed to load:", this.src);
-            };
-
-            // Append elements to the card
-            card.appendChild(projectName);
-            card.appendChild(projectDetails); // ✅ Small text before image
-            card.appendChild(projectImg);
-
-            // Append card to container
-            container.appendChild(card);
-        });
-
-        container.classList.remove("hidden");
-    } else {
-        container.classList.add("hidden");
-    }
-}
-
-     
-     */
-     </script>
-     <script>
-      const achievementsData = {
-    international: [
-        { 
-            name: "Rutherford Appleton Laboratory (UK) - Nuclear Accelerators", 
-            details: "Developing high-energy physics magnets and nuclear accelerator systems.",
-            img: "1.jpg" 
-        },
-        { 
-            name: "Rome University (Italy) - Nuclear Power Solutions", 
-            details: "Implementing innovative nuclear power station safety measures.",
-            img: "2.jpg" 
-        },
-        { 
-            name: "GE Canada - High-Efficiency Motors Consultation", 
-            details: "Consultation on high-efficiency industrial motor technologies.",
-            img: "3.jpg" 
-        }
-    ],
-   
-    local: [
-        { 
-            name: "Cairo Metro - Substations & Standby Power Systems", 
-            details: "Ensuring reliable backup power systems for metro stations. Designed and supervised Cairo Metro substations, including backup generators, control units, cables, and protection systems.",
-            img: "4.jpg" 
-        },
-        { 
-            name: "City of Scientific Research - Electrical Network & Fire Alarms", 
-            details: "Upgrading the electrical infrastructure for research facilities. Designed and supervised electrical systems for Mubarak City, including power networks, telecom, elevators, HVAC power, transformers, backup generators, lighting, and fire alarms.",
-            img: "5.jpg" 
-        },
-        { 
-            name: "Strategic Planning for Kalyoub City - Electrical Works", 
-            details: "Comprehensive electrical planning for urban development. Designed electrical works for Kalyoub City, which spans 1018 KM² and houses 4.2 million people, representing 23.2% of Cairo’s population.",
-            img: "6.jpg" 
-        },
-        { 
-            name: "National Drinking Water & Sewage Authority", 
-            details: "Waste Water Substation - Arab Abo Mosa3ed – Helwan: Designed and supervised the upgrade from conventional control to a SCADA system. Also, reviewed and approved electrical works for the authority and solved various drinking water issues.",
-            img: "2-1.jpg" 
-        },
-        { 
-            name: "Petroleum Pipeline Cairo – Assiut (Mustered – Assiut)", 
-            details: "Solved major problems for the buried petroleum pipeline from Cairo to Assiut using advanced cathodic protection methods.",
-            img: "2-2.jpg" 
-        },
-        { 
-            name: "Agrarian Reform Authority - High-Rise Electrical System", 
-            details: "Designed and supervised installation for an 18-floor government building including electrical networks, telephone systems, network cabling, transformers, standby generators, lighting, and fire alarms.",
-            img: "2-3.png" 
-        },
-        { 
-            name: "Garbage Transformation to Fertilizer - Zagazig", 
-            details: "Designed and supervised the electrical system and automated production lines for a garbage-to-fertilizer plant. The project later expanded to 11 more factories across Egypt.",
-            img: "2-4.jpg" 
-        }
-    ],
-    government: [
-        { 
-            name: "Egypt Presidential Building - Electrical Design", 
-            details: "Electrical planning and implementation for government headquarters,Revision of Design & Supervision over installation for electrical work in the presidential building ",
-            img: "7.jpg" 
-        },
-        { 
-            name: "Ministry of Justice - Electric Substation & Backup Generators", 
-            details: "Providing sustainable and efficient power solutions,Design of Electric Substation with Back Up Diesel Generator sets",
-            img: "8.jpg" 
-        },
-        { 
-            name: "National Traffic Department - Diesel Generator Backup", 
-            details: "Ensuring power continuity for critical infrastructure,( Egypt Vehicle registration ) Design for back up diesel generator units in all branches across:Cairo Giza Alexandria.",
-            img: "9.jpg" 
-        },
-
-        { 
-            name: "Artillery Officers House - Armed Forces", 
-            details: "Designed and supervised electrical installation for celebration halls, including: Electrical networks, network cabling, elevators, central air conditioning power, lighting, generator emergency standby units, and fire alarm systems.",
-            img: "3-1.jpg" 
-        }
-
-    ],
     
-    healthcare: [
-    { 
-            name: "Ain Shams Hospital - ICU Electrical Setup", 
-            details: "Optimizing power for ICU and emergency units,A)	Design & Supervision over installation for: a.	The hospital’s main substation which included: 1-transformers 2-Medium Voltage 3-Control 4-Generators",
-            img: "10.jpg" 
-        },
-        { 
-            name: "Damanhour Teaching Hospital - 900-bed Electrical Infrastructure", 
-            details: "Design and supervison over installation of all electrical systems in the hospital which includes but not limited to: •	Lighting •	Elevators •	Fire Alarm •	Central Air Conditioning •	X-ray Labs •	Intensive Care Units •	Distribution Electricity Network •	Generators",
-            img: "11.jpg" 
-        },
-        { 
-            name: "Matareyya Hospital - Electrical Renovations", 
-            details: "Upgrading electrical safety systems for improved care,Design for renovation of all electrical works inside the hospital",
-            img: "12.jpg" 
-        },
-    /*
-    { 
-        name: "Ain Shams Specialized Hospital - Neurosurgery Extension", 
-        details: "Designed electrical systems for the hospital’s neurosurgery extension, ensuring seamless integration with existing infrastructure.",
-        img: "31.jpg" 
-    },
-    { 
-        name: "Ain Shams Specialized Hospital - Oncology Extension", 
-        details: "Designed electrical systems for the oncology extension, improving power reliability for specialized medical equipment.",
-        img: "32.jpg" 
-    },
-    */
-    { 
-        name: "Saint George Hospital - Heliopolis, Cairo", 
-        details: "Designed and supervised installation for all electrical works in the hospital, ensuring enhanced safety and efficiency.",
-        img: "saint.jpg" 
-    },
-    { 
-        name: "Demerdash Hospital - Cairo", 
-        details: "Revised electrical designs and supervised installation for the reception and emergency building to ensure compliance with modern standards.",
-        img: "dem.jpg" 
-    },
-   
-    { 
-        name: "El Marwa Hospital", 
-        details: "Reviewed all distribution boards, electricity networks, standby electric stations, and hospital transformers to optimize power distribution and backup solutions.",
-        img: "mar.jpg" 
-    },
-   
-    { 
-        name: "Ayoub Hospital - Nasr City, Cairo", 
-        details: "Designed and supervised installation of all electrical systems, including lighting, elevators, fire alarms, central air conditioning, X-ray labs, intensive care units, distribution network, generators, and transformers.",
-        img: "ayob.jpg" 
-    }
+     <script>
+
+     const achievementsData = {
+ international: [
+  {
+    name: "Rutherford Appleton Laboratory (UK) - Nuclear Accelerators",
+    details: "Developing high-energy physics magnets and nuclear accelerator systems.",
+    modalDetails: `
+      <p><strong>Project:</strong> Rutherford Appleton Laboratory – United Kingdom</p>
+      <p><strong>Duration:</strong> 1978 – 1979</p>
+      <p><strong>Scope of Work:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Served as consultant for the design of nuclear accelerators.</li>
+        <li>Specialized in High Energy Physics Magnets engineering and development.</li>
+        <li>Contributed to international research collaborations in particle physics.</li>
+      </ul>
+      <p>This work helped lay the foundation for innovations in accelerator magnet technology used in nuclear research across Europe.</p>
+    `,
+    img: "1.jpg"
+  },
+  {
+    name: "Rome University (Italy) - Nuclear Power Solutions",
+    details: "Implementing innovative nuclear power station safety measures.",
+    modalDetails: `
+      <p><strong>Project:</strong> Rome University – Italy</p>
+      <p><strong>Year:</strong> 1985</p>
+      <p><strong>Problem Solved:</strong> Critical protection challenges in Italy’s Nuclear Power Station.</p>
+      <p><strong>Solution Provided:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Designed and implemented safety systems based on Smart Industrial Intelligence.</li>
+        <li>Introduced automated protection protocols to mitigate high-risk scenarios.</li>
+        <li>Enhanced fault tolerance and failure detection systems within the plant.</li>
+      </ul>
+      <p>The project marked a pioneering step in integrating intelligent systems into nuclear facility operations.</p>
+    `,
+    img: "2.jpg"
+  },
+  {
+    name: "GE Canada - High-Efficiency Motors Consultation",
+    details: "Consultation on high-efficiency industrial motor technologies.",
+    modalDetails: `
+      <p><strong>Project:</strong> GE Canada – High-Efficiency Motor Design</p>
+      <p><strong>Collaboration With:</strong> Windsor College, Canada</p>
+      <p><strong>Scope:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Consultancy for development of special high-efficiency electric motors.</li>
+        <li>Focused on reducing energy consumption across industrial applications.</li>
+        <li>Involved in optimization of design parameters to meet Canadian energy standards.</li>
+      </ul>
+      <p>This collaboration supported GE’s efforts to produce next-generation electric motors with better performance and lower operational costs.</p>
+    `,
+    img: "3.jpg"
+  }
 ],
 
+local: [
+  {
+    name: "Cairo Metro - Substations & Standby Power Systems",
+    details: "Ensuring reliable backup power systems for metro stations.",
+    modalDetails: `
+      <p><strong>Design and Supervision over installation for substations:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>El Sayeda Zeinab</li>
+        <li>Saad Zaghlool</li>
+        <li>Mohamed Naguib</li>
+        <li>Attba</li>
+        <li>Orabi</li>
+        <li>Mubarak (El Shohada)</li>
+      </ul>
+      <p><strong>Design and Supervision over installation for Metro Electricity Standby Power Feeding Substation</strong></p>
+      <p>The substation is responsible for emergency electricity feeding of:</p>
+      <ul class="list-disc pl-5">
+        <li>The metro line</li>
+        <li>All electrical connected loads in the metro stations</li>
+      </ul>
+      <p><strong>Work in substation included:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>The generator backup units in case of power outage</li>
+        <li>Automatic Control units in case of power outage</li>
+        <li>Cables Network</li>
+        <li>Distribution boards</li>
+        <li>All Protection devices</li>
+      </ul>
+    `,
+    img: "4.jpg"
+  },
+
+  {
+    name: "City of Scientific Research - Electrical Network & Fire Alarms",
+    details: "Upgrading the electrical infrastructure for research facilities.",
+    modalDetails: `
+      <p><strong>Project:</strong> City of Scientific Research and Technological Applications (Mubarak City)</p>
+      <p>Inaugurated by President Mubarak in August 2000.</p>
+      <p><strong>Scope:</strong> Design and Supervision over Installation for all Electrical City Systems including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Telephone Systems</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Central Air Conditioning Units Power Feeding</li>
+        <li>Transformers</li>
+        <li>Standby Generator units in case of power outage</li>
+        <li>Lighting system</li>
+        <li>Fire Alarm</li>
+      </ul>
+    `,
+    img: "5.jpg"
+  },
+
+  {
+    name: "Strategic Planning for Kalyoub City - Electrical Works",
+    details: "Comprehensive electrical planning for urban development.",
+    modalDetails: `
+      <p><strong>Project:</strong> Strategic Planning for Kalyoub City</p>
+      <p><strong>Scope:</strong> Design for Electrical Works in Kalyoub City.</p>
+      <p><strong>City size:</strong> 1018 km²</p>
+      <p><strong>Population:</strong> 4.2 million people</p>
+      <p><strong>Share of Cairo's population:</strong> 23.2%</p>
+    `,
+    img: "6.jpg"
+  },
+
+  {
+    name: "National Drinking Water & Sewage Authority",
+    details: "Waste Water Substation - Arab Abo Mosa3ed – Helwan: Designed and supervised upgrade from conventional to SCADA system.",
+    modalDetails: `
+      <p><strong>Authority:</strong> National Drinking Water and Sewage Authority</p>
+      <p><strong>A)</strong> Waste Water Substation – Arab Abo Mosa3ed – Helwan</p>
+      <p>Design and supervision over installation for changing the station control from conventional to SCADA System (Supervisory Control & Data Acquisition)</p>
+      <p><strong>B)</strong> Revision and approval for electrical works provided by the authority</p>
+      <p><strong>C)</strong> Solving different problems related to drinking water</p>
+    `,
+    img: "2-1.jpg"
+  },
+
+  {
+    name: "Petroleum Pipeline Cairo – Assiut (Mustered – Assiut)",
+    details: "Solved major problems for the buried petroleum pipeline using advanced cathodic protection methods.",
+    modalDetails: `
+      <p><strong>Scope:</strong> Solving Major problems for the buried petroleum pipeline from Cairo to Assiut</p>
+      <p><strong>Method Used:</strong> Cathodic protection</p>
+    `,
+    img: "2-2.jpg"
+  },
+
+  {
+    name: "Agrarian Reform Authority - High-Rise Electrical System",
+    details: "Designed and supervised installation for an 18-floor government building including electrical networks...",
+    modalDetails: `
+      <p><strong>Building Description:</strong> 18 floors, Theater, Cinema, etc.</p>
+      <p><strong>Design and Supervision over installation for:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Telephone Systems</li>
+        <li>Network Cables</li>
+        <li>Transformers</li>
+        <li>Standby Generator units in case of power outage</li>
+        <li>Lighting system</li>
+        <li>Fire Alarm</li>
+      </ul>
+    `,
+    img: "2-3.png"
+  },
+
+  {
+    name: "Garbage Transformation to Fertilizer - Zagazig",
+    details: "Designed and supervised the electrical system and automated production lines for a garbage-to-fertilizer plant.",
+    modalDetails: `
+      <p><strong>Scope:</strong> Design and Supervision over installation of all electrical systems and automated production lines.</p>
+      <p><strong>Impact:</strong> Project extended to 11 more factories across Egypt.</p>
+    `,
+    img: "2-4.jpg"
+  }
+],
+
+ government: [
+  {
+    name: "Egypt Presidential Building - Electrical Design",
+    details: "Electrical planning and implementation for government headquarters.",
+    modalDetails: `
+      <p><strong>Project:</strong> Egypt Presidential Building</p>
+      <p><strong>Scope:</strong> Revision of design and supervision over installation for electrical work in the presidential building.</p>
+    `,
+    img: "7.jpg"
+  },
+
+  {
+    name: "Ministry of Justice - Electric Substation & Backup Generators",
+    details: "Providing sustainable and efficient power solutions.",
+    modalDetails: `
+      <p><strong>Project:</strong> Ministry of Justice</p>
+      <p><strong>Scope:</strong> Design of Electric Substation with Backup Diesel Generator sets.</p>
+    `,
+    img: "8.jpg"
+  },
+
+  {
+    name: "National Traffic Department - Diesel Generator Backup",
+    details: "Ensuring power continuity for critical infrastructure.",
+    modalDetails: `
+      <p><strong>Project:</strong> Central Traffic Department (Egypt Vehicle Registration)</p>
+      <p><strong>Scope:</strong> Design for backup diesel generator units in all branches located in:</p>
+      <ul class="list-disc pl-5">
+        <li>Cairo</li>
+        <li>Giza</li>
+        <li>Alexandria</li>
+      </ul>
+    `,
+    img: "9.jpg"
+  },
+
+  {
+    name: "Artillery Officers House - Armed Forces",
+    details: "Designed and supervised electrical installation for celebration halls, including: Electrical networks...",
+    modalDetails: `
+      <p><strong>Project:</strong> Artillery Officers House – Armed Forces</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation for all electrical systems in celebration halls, including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Central Air Conditioning Units Power Feeding</li>
+        <li>Lighting System</li>
+        <li>Generator Emergency Standby Units</li>
+        <li>Fire Alarm</li>
+      </ul>
+    `,
+    img: "3-1.jpg"
+  }
+],
+
+ healthcare: [
+  {
+    name: "Ain Shams Hospital - ICU Electrical Setup",
+    details: "Optimizing power for ICU and emergency units.",
+    modalDetails: `
+      <p><strong>Project:</strong> Ain Shams Specialized Hospital</p>
+      <p><strong>A) Main Substation:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Transformers</li>
+        <li>Medium Voltage</li>
+        <li>Control</li>
+        <li>Generators</li>
+      </ul>
+      <p>Installation ensured continuous power supply during work.</p>
+      <p><strong>B) Additional Areas:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Operation rooms electrical design</li>
+        <li>Hospital warehouses & corpse refrigerator</li>
+        <li>Substation for central HVAC system</li>
+      </ul>
+      <p><strong>C) Hospital Extensions:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Neurosurgery extension (design)</li>
+        <li>Oncology extension (design)</li>
+      </ul>
+    `,
+    img: "10.jpg"
+  },
+
+  {
+    name: "Damanhour Teaching Hospital - 900-bed Electrical Infrastructure",
+    details: "Design and supervision of all hospital electrical systems.",
+    modalDetails: `
+      <p><strong>Project:</strong> Damanhour Teaching Hospital Extension – 900 Beds</p>
+      <p><strong>Scope:</strong> Design and supervision of full hospital electrical systems including:</p>
+      <ul class="list-disc pl-5">
+        <li>Lighting</li>
+        <li>Elevators</li>
+        <li>Fire Alarm</li>
+        <li>Central Air Conditioning</li>
+        <li>X-ray Labs</li>
+        <li>Intensive Care Units</li>
+        <li>Distribution Electricity Network</li>
+        <li>Generators</li>
+        <li>Transformers</li>
+      </ul>
+    `,
+    img: "11.jpg"
+  },
+
+  {
+    name: "Matareyya Hospital - Electrical Renovations",
+    details: "Upgrading electrical safety systems for improved care.",
+    modalDetails: `
+      <p><strong>Project:</strong> Matareyya Hospital – Cairo</p>
+      <p><strong>Scope:</strong> Design for renovation of all electrical works inside the hospital.</p>
+    `,
+    img: "12.jpg"
+  },
+
+  {
+    name: "Saint George Hospital - Heliopolis, Cairo",
+    details: "Designed and supervised installation for all electrical works.",
+    modalDetails: `
+      <p><strong>Project:</strong> Saint George Hospital – Heliopolis</p>
+      <p><strong>Scope:</strong> Full design and supervision of all hospital electrical systems.</p>
+    `,
+    img: "saint.jpg"
+  },
+
+  {
+    name: "Demerdash Hospital - Cairo",
+    details: "Revised electrical designs and supervised installation for the reception and emergency building.",
+    modalDetails: `
+      <p><strong>Project:</strong> Demerdash Hospital – Cairo</p>
+      <p><strong>Scope:</strong> Revision of design and supervision over installation for:</p>
+      <ul class="list-disc pl-5">
+        <li>Reception building</li>
+        <li>Emergency building</li>
+      </ul>
+      <p>Including all electrical works.</p>
+    `,
+    img: "dem.jpg"
+  },
+
+  {
+    name: "El Marwa Hospital",
+    details: "Reviewed all distribution boards, electricity networks, standby electric stations, and transformers.",
+    modalDetails: `
+      <p><strong>Project:</strong> El Marwa Hospital</p>
+      <p><strong>Scope:</strong> Revision of the following systems:</p>
+      <ul class="list-disc pl-5">
+        <li>All distribution boards</li>
+        <li>Electricity networks</li>
+        <li>Standby electric stations</li>
+        <li>Transformers</li>
+      </ul>
+    `,
+    img: "mar.jpg"
+  },
+
+  {
+    name: "Ayoub Hospital - Nasr City, Cairo",
+    details: "Full electrical systems design and supervision for all medical departments.",
+    modalDetails: `
+      <p><strong>Project:</strong> Ayoub Hospital – Nasr City</p>
+      <p><strong>Scope:</strong> Design and supervision over installation of all electrical systems, including:</p>
+      <ul class="list-disc pl-5">
+        <li>Lighting</li>
+        <li>Elevators</li>
+        <li>Fire Alarm</li>
+        <li>Central Air Conditioning</li>
+        <li>X-ray Labs</li>
+        <li>Intensive Care Units</li>
+        <li>Distribution Electricity Network</li>
+        <li>Generators</li>
+        <li>Transformers</li>
+      </ul>
+    `,
+    img: "ayob.jpg"
+  }
+],
 
 
     industrial: [
-        { 
-            name: "BMW Factory - 6th of October City, Cairo", 
-            details: "Designed and supervised installation for all electrical networks in the car production line, including medium voltage systems, transformers, busways, lighting, emergency standby generators, and fire alarms.",
-            img: "13.jpg" 
-        },
-        { 
-            name: "Alpha Factory for Metals", 
-            details: "Designed the electrical network and lighting systems to enhance factory operations and efficiency.",
-            img: "14.jpg" 
-        },
-        { 
-            name: "Alpha Factory for Plastics", 
-            details: "Designed the entire electrical network and lighting system for optimized energy use in plastic manufacturing.",
-            img: "15.jpg" 
-        },
-        { 
-            name: "Gayed Tex For Spinning Industry - Obour City", 
-            details: "Designed and supervised installation of all electrical power networks, lighting, transformers, and emergency backup generators. The factory's electrical capacity is 5.3 MW.",
-            img: "gayed.jpg" 
-        },
-        { 
-            name: "Gayed Tex For Polyester Industry - Obour City", 
-            details: "Designed and supervised installation of electrical networks, lighting, transformers, and emergency backup generators. The factory's electrical capacity is 4 MW.",
-            img: "gayed2.jpg" 
-        },
-        { 
-            name: "El Masala Factory for Electrical Cable Accessories - 6th of October City", 
-            details: "Designed and supervised installation of electrical networks, transformers, and emergency backup generators for the factory.",
-            img: "masa.jpg" 
-        }
-    ],
-
-    museums: [
-    { 
-        name: "Mahmoud Khalil Museum - Cairo", 
-        details: "Designed and supervised installation for all electrical works and safety measures. The museum is famous for the well-known painting 'Zahret El Khsohkhash'.",
-        img: "16.jpg" 
+    {
+      name: "BMW Factory - 6th of October City, Cairo",
+      details: "Designed and supervised installation for all electrical networks in the car production line.",
+      modalDetails: `
+        <ul class="list-disc pl-5">
+          <li>Electrical Network</li>
+          <li>Network Cables</li>
+          <li>Medium Voltage</li>
+          <li>Transformers</li>
+          <li>Busways</li>
+          <li>Lighting</li>
+          <li>Standby Generators</li>
+          <li>Fire Alarm</li>
+        </ul>
+      `,
+      img: "13.jpg"
     },
-    { 
-        name: "El Gezira Museum - Cairo", 
-        details: "Reviewed and supervised installation for all electrical works, modernizing the museum's infrastructure.",
-        img: "17.jpg" 
+    {
+      name: "Alpha Factory for Metals",
+      details: "Designed the electrical network and lighting systems to enhance factory operations.",
+      modalDetails: "Designed full electrical and lighting systems to improve energy distribution and safety.",
+      img: "14.jpg"
     },
-    { 
-        name: "Museum of Islamic Ceramics - Cairo", 
-        details: "Reviewed and supervised installation for all electrical works to ensure safe electrical conservation.",
-        img: "18.jpg" 
+    {
+      name: "Alpha Factory for Plastics",
+      details: "Designed the entire electrical network and lighting system for optimized energy use.",
+      modalDetails: "Designed energy-efficient lighting and full electrical infrastructure for plastics manufacturing.",
+      img: "15.jpg"
     },
-    { 
-        name: "Saffron Palace (King Farouk Palace) - Ain Shams University, Cairo", 
-        details: "The palace, a historic monument dating back to 1985, required specialized work to preserve sculptures and paintings. Designed and supervised installation for all electrical systems, including electrical networks, telephone systems, network cables, elevators, central air conditioning units, transformers, standby generators, lighting systems, and fire alarms.",
-        img: "far.jpg" 
+    {
+      name: "Gayed Tex For Spinning Industry - Obour City",
+      details: "Designed and supervised all electrical power networks, lighting, transformers, and backup generators.",
+      modalDetails: `
+        <p>Installed electrical capacity: <strong>5.3 MW</strong></p>
+        <ul class="list-disc pl-5">
+          <li>Power Network</li>
+          <li>Lighting</li>
+          <li>Transformers</li>
+          <li>Backup Generators</li>
+        </ul>
+      `,
+      img: "gayed.jpg"
+    },
+    {
+      name: "Gayed Tex For Polyester Industry - Obour City",
+      details: "Designed and supervised full electrical systems and emergency backup.",
+      modalDetails: `
+        <p>Installed electrical capacity: <strong>4 MW</strong></p>
+        <ul class="list-disc pl-5">
+          <li>Power Network</li>
+          <li>Lighting</li>
+          <li>Transformers</li>
+          <li>Backup Generators</li>
+        </ul>
+      `,
+      img: "gayed2.jpg"
+    },
+    {
+      name: "El Masala Factory for Electrical Cable Accessories - 6th of October City",
+      details: "Designed and supervised installation of electrical networks, transformers, and backup systems.",
+      modalDetails: "Full electrical design including transformers and backup generators for cable accessories factory.",
+      img: "masa.jpg"
     }
+  ],
+
+museums: [
+  {
+    name: "Mahmoud Khalil Museum - Cairo",
+    details: "Designed and supervised installation for all electrical works and safety measures.",
+    img: "16.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Mahmoud Khalil Museum – Cairo</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation of all electrical works and safety systems.</p>
+      <p><strong>Highlights:</strong> This museum is well-known for housing the priceless painting <em>“Zahret El Khokhash”</em>.</p>
+    `
+  },
+  {
+    name: "El Gezira Museum - Cairo",
+    details: "Reviewed and supervised installation for all electrical works, modernizing the museum's infrastructure.",
+    img: "17.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> El Gezira Museum – Cairo</p>
+      <p><strong>Scope:</strong> Revision and Supervision over installation of all electrical systems within the museum.</p>
+      <p><strong>Objective:</strong> Upgrading and modernizing the museum’s infrastructure for better safety and efficiency.</p>
+    `
+  },
+  {
+    name: "Museum of Islamic Ceramics - Cairo",
+    details: "Reviewed and supervised installation for all electrical works to ensure safe electrical conservation.",
+    img: "18.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Museum of Islamic Ceramics – Cairo</p>
+      <p><strong>Scope:</strong> Complete revision and supervision of all electrical installations.</p>
+      <p><strong>Goal:</strong> Ensure safe operation of conservation equipment and exhibition environments.</p>
+    `
+  },
+  {
+    name: "Saffron Palace (King Farouk Palace) - Ain Shams University, Cairo",
+    details: "Specialized work to preserve sculptures and paintings with full electrical design.",
+    img: "far.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Saffron Palace – King Farouk’s Palace at Ain Shams University</p>
+      <p><strong>Historical Significance:</strong> Monumental palace dating back to 1985 containing rare sculptures and paintings requiring careful preservation.</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation of all electrical systems, including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Telephone Systems</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Central Air Conditioning Units Power Feeding</li>
+        <li>Transformers</li>
+        <li>Standby Generator units in case of power outage</li>
+        <li>Lighting system</li>
+        <li>Fire Alarm</li>
+      </ul>
+    `
+  }
 ],
+banking: [
+  {
+    name: "Suez Canal Bank - Electrical & Security Supervision",
+    details: "Providing security-enhanced electrical solutions.",
+    img: "19.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Suez Canal Bank – Main Administrative Branch</p>
+      <p><strong>Scope:</strong> Design and supervision over installation for low voltage works including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Central Air Conditioning Power Feeding</li>
+        <li>Lighting System</li>
+        <li>Security Enhancements</li>
+      </ul>
+    `
+  },
+  {
+    name: "CIB Bank - Electrical Network Upgrades",
+    details: "Ensuring stable and efficient banking power systems.",
+    img: "20.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Commercial International Bank (CIB)</p>
+      <p><strong>Scope:</strong> Design and supervision over installation for all low voltage systems including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Central Air Conditioning Power Feeding</li>
+        <li>Lighting Systems</li>
+      </ul>
+    `
+  },
+  {
+    name: "Agricultural Bank of Egypt - CCTV & Power Installations",
+    details: "Integrating security systems with electrical infrastructure.",
+    img: "21.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Agricultural Bank of Egypt</p>
+      <p><strong>Branches:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>New Cairo Administrative Branch</li>
+        <li>Al Kasr Al Ainy – Downtown Branch</li>
+      </ul>
+      <p><strong>Scope:</strong> Design and supervision over installation of:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>CCTV Security Systems</li>
+      </ul>
+    `
+  },
+  {
+    name: "National Investment Bank - Green Building (Smart Village Branch)",
+    details: "Designed and supervised installation for all electrical works including medium voltage, busways, CCTV.",
+    img: "nati.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> National Investment Bank – Smart Village Branch (Green Building)</p>
+      <p><strong>Scope:</strong> Full design and supervision over all electrical works including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Medium Voltage Systems</li>
+        <li>Transformers</li>
+        <li>Busways</li>
+        <li>Central Air Conditioning Units Power Feeding</li>
+        <li>Lighting System</li>
+        <li>Emergency Standby Generators</li>
+        <li>Fire Alarm</li>
+        <li>CCTV</li>
+      </ul>
+    `
+  },
+  {
+    name: "National Investment Bank - Bab El Louk Branch, Cairo",
+    details: "Designed and supervised installation for the main substation and power systems.",
+    img: "bab.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> National Investment Bank – Bab El Louk Branch – Cairo</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation for:</p>
+      <ul class="list-disc pl-5">
+        <li>Main Electric Substation</li>
+        <li>Power Distribution Systems</li>
+        <li>Energy Efficiency Enhancements</li>
+      </ul>
+    `
+  },
+  {
+    name: "National Investment Bank - Green Mountain Branch, Cairo",
+    details: "Design and supervision in progress for full electrical and security systems.",
+    img: "green.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> National Investment Bank – Green Mountain Branch – Cairo</p>
+      <p><strong>Status:</strong> In Progress</p>
+      <p><strong>Scope:</strong> Design and supervision over installation for all electrical and safety systems including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Medium Voltage Systems</li>
+        <li>Transformers</li>
+        <li>Busways</li>
+        <li>Central Air Conditioning Units Power Feeding</li>
+        <li>Lighting System</li>
+        <li>Emergency Standby Generators</li>
+        <li>Fire Alarm</li>
+        <li>CCTV</li>
+      </ul>
+    `
+  }
+]
 
-
-    banking: [
-    { 
-        name: "Suez Canal Bank - Electrical & Security Supervision", 
-        details: "Providing security-enhanced electrical solutions. Designed and supervised installation for the low voltage works, including electrical network, network cables, elevators, central air conditioning units power feeding, and lighting systems.",
-        img: "19.jpg" 
-    },
-    { 
-        name: "CIB Bank - Electrical Network Upgrades", 
-        details: "Ensuring stable and efficient banking power systems. Designed and supervised installation for the low voltage works, including electrical network, network cables, elevators, central air conditioning units power feeding, and lighting systems.",
-        img: "20.jpg" 
-    },
-    { 
-        name: "Agricultural Bank of Egypt - CCTV & Power Installations", 
-        details: "Integrating security systems with electrical infrastructure. Designed and supervised installation for all electrical works in the New Cairo administrative branch, including electrical network, network cables, and elevators. Similar work was completed in the Al Kasr Al Eeiny - Downtown branch.",
-        img: "21.jpg" 
-    },
-    { 
-        name: "National Investment Bank - Green Building (Smart Village Branch)", 
-        details: "Designed and supervised installation for all electrical works, including electrical network, network cables, elevators, medium voltage, transformers, busways, central air conditioning units power feeding, lighting system, generator emergency standby units, fire alarm, and CCTV.",
-        img: "nati.jpg" 
-    },
-    { 
-        name: "National Investment Bank - Bab El Louk Branch, Cairo", 
-        details: "Designed all electrical works and supervised installation for the main substation, ensuring reliable and efficient power distribution.",
-        img: "bab.jpg" 
-    },
-    { 
-        name: "National Investment Bank - Green Mountain Branch, Cairo", 
-        details: "Designed and supervised installation (in progress) for all electrical works, including electrical network, network cables, elevators, medium voltage, transformers, busways, central air conditioning units power feeding, lighting system, generator emergency standby units, fire alarm, and CCTV.",
-        img: "green.jpg" 
-    }
-],
-
+,
 universities: [
-    { 
-        name: "MUST University Extension - Misr University for Science and Technology", 
-        details: "Designed all electrical networks for the extension project, which included five faculties, campus extension, library, and administrative offices. The scope covered electrical networks, telephone systems, network cables, elevators, central air conditioning power, ring units, busways, transformers, standby generators, lighting systems, fire alarms, and CCTV.",
-        img: "must.jpg" 
-    },
-    { 
-        name: "Ain Shams University Campus - Medium Voltage Network", 
-        details: "Designed and supervised the installation of the medium voltage network for the main Ain Shams University campus.",
-        img: "ain.jpg" 
-    },
-    { 
-        name: "Ain Shams University - Faculty of Science", 
-        details: "Designed and supervised installation for the faculty’s medium voltage substation, including transformers, backup generators, medium voltage ring units, and busways. Also, installed a low voltage network, including lighting, telephone networks, and sockets.",
-        img: "sin.jpg" 
-    },
-    { 
-        name: "Ain Shams University - Faculty of Law", 
-        details: "Designed and supervised installation for the faculty’s medium voltage substation, including transformers, backup generators, medium voltage ring units, and busways. The low voltage network covered lighting, telephone networks, and sockets.",
-        img: "law.jpg" 
-    },
-    { 
-        name: "Ain Shams University - Faculty of Literature", 
-        details: "Designed and supervised installation of the low voltage network for the main student session halls.",
-        img: "lit.jpg" 
-    }
+  {
+    name: "MUST University Extension - Misr University for Science and Technology",
+    details: "Designed all electrical networks for the extension project, including five faculties and campus buildings.",
+    img: "must.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Misr University for Science and Technology (MUST) – Extension</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation for all electrical systems of:</p>
+      <ul class="list-disc pl-5">
+        <li>5 New Faculties</li>
+        <li>Campus Extension Buildings</li>
+        <li>Library</li>
+        <li>Administrative Offices</li>
+      </ul>
+      <p><strong>Systems Included:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Networks</li>
+        <li>Telephone Systems</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Power Feeding for Central A/C Units</li>
+        <li>Ring Units</li>
+        <li>Busways</li>
+        <li>Transformers</li>
+        <li>Standby Generator Units</li>
+        <li>Lighting Systems</li>
+        <li>Fire Alarm</li>
+        <li>CCTV Surveillance</li>
+      </ul>
+    `
+  },
+  {
+    name: "Ain Shams University Campus - Medium Voltage Network",
+    details: "Designed and supervised the installation of the medium voltage network for the campus.",
+    img: "ain.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Ain Shams University – Main Campus</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation of the Medium Voltage (MV) Network for the full campus.</p>
+    `
+  },
+  {
+    name: "Ain Shams University - Faculty of Science",
+    details: "Designed and supervised installation for the medium voltage substation and low voltage networks.",
+    img: "sin.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Ain Shams University – Faculty of Science</p>
+      <p><strong>Scope:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Design and Supervision over installation for the Medium Voltage Substation</li>
+        <li>Transformers</li>
+        <li>Standby Generators</li>
+        <li>Medium Voltage Ring Units</li>
+        <li>Busways</li>
+      </ul>
+      <p><strong>Low Voltage Works:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Lighting</li>
+        <li>Telephone Systems</li>
+        <li>Sockets</li>
+      </ul>
+    `
+  },
+  {
+    name: "Ain Shams University - Faculty of Law",
+    details: "Designed and supervised installation for all medium and low voltage electrical systems.",
+    img: "law.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Ain Shams University – Faculty of Law</p>
+      <p><strong>Scope:</strong> Medium Voltage Systems:</p>
+      <ul class="list-disc pl-5">
+        <li>Substation</li>
+        <li>Transformers</li>
+        <li>Backup Generators</li>
+        <li>Medium Voltage Ring Units</li>
+        <li>Busways</li>
+      </ul>
+      <p><strong>Low Voltage Works:</strong></p>
+      <ul class="list-disc pl-5">
+        <li>Lighting</li>
+        <li>Telephone Systems</li>
+        <li>Sockets</li>
+      </ul>
+    `
+  },
+  {
+    name: "Ain Shams University - Faculty of Literature",
+    details: "Designed and supervised installation of the low voltage network for main session halls.",
+    img: "lit.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Ain Shams University – Faculty of Literature</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation of Low Voltage Network in:</p>
+      <ul class="list-disc pl-5">
+        <li>Main Student Session Halls</li>
+        <li>Lighting</li>
+        <li>Sockets</li>
+        <li>Telephone Network</li>
+      </ul>
+    `
+  }
+],
+museums: [
+  {
+    name: "Mahmoud Khalil Museum - Cairo",
+    details: "Designed and supervised installation for all electrical works and safety measures.",
+    img: "16.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Mahmoud Khalil Museum – Cairo</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation of all electrical systems for the full museum building.</p>
+      <p><strong>Notes:</strong> The museum holds the famous painting <em>"Zahret El Khashkhash"</em>.</p>
+    `
+  },
+  {
+    name: "El Gezira Museum - Cairo",
+    details: "Reviewed and supervised installation for all electrical works, modernizing the museum's infrastructure.",
+    img: "17.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> El Gezira Museum – Cairo</p>
+      <p><strong>Scope:</strong> Revision and Supervision over installation of all electrical systems for the museum building.</p>
+    `
+  },
+  {
+    name: "Museum of Islamic Ceramics - Cairo",
+    details: "Reviewed and supervised installation for all electrical works to ensure safe electrical conservation.",
+    img: "18.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Museum of Islamic Ceramics – Cairo</p>
+      <p><strong>Scope:</strong> Revision and Supervision over all electrical systems for the museum building, ensuring proper infrastructure to protect ceramic artifacts.</p>
+    `
+  },
+  {
+    name: "Saffron Palace (King Farouk Palace) - Ain Shams University, Cairo",
+    details: "Preserved historical palace with specialized electrical work to protect artworks and structure.",
+    img: "far.jpg",
+    modalDetails: `
+      <p><strong>Project:</strong> Saffron Palace (King Farouk Palace) – Ain Shams University – Cairo</p>
+      <p><strong>Historical Importance:</strong> The palace is a historical monument dating back to 1985, featuring sculptures and paintings that required careful preservation.</p>
+      <p><strong>Scope:</strong> Design and Supervision over installation for all electrical systems including:</p>
+      <ul class="list-disc pl-5">
+        <li>Electrical Network</li>
+        <li>Telephone Systems</li>
+        <li>Network Cables</li>
+        <li>Elevators</li>
+        <li>Central Air Conditioning Units Power Feeding</li>
+        <li>Transformers</li>
+        <li>Standby Generator Units</li>
+        <li>Lighting Systems</li>
+        <li>Fire Alarm Systems</li>
+      </ul>
+    `
+  }
 ]
 
 
+ 
+  }
+    
+  
+  // ✅ Functions for modal (keep them OUTSIDE showAchievements)
+      /*
+function openModal(title, details, img) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalDetails").textContent = details;
+  document.getElementById("modalImage").src = `assets/img/projects/${img}`;
+  document.getElementById("popupModal").classList.remove("hidden");
+}
+*/
+function openModal(title, modalHtml, img) {
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalDetails").innerHTML = modalHtml;
+  document.getElementById("modalImage").src = `assets/img/projects/${img}`;
+  document.getElementById("popupModal").classList.remove("hidden");
+}
+
+function closeModal() {
+  document.getElementById("popupModal").classList.add("hidden");
+}
+
+// ✅ Main rendering function
+function showAchievements() {
+  const category = document.getElementById("categorySelect").value;
+  const container = document.getElementById("achievementsContainer");
+
+  container.innerHTML = ""; // Clear previous content
+
+  if (category && achievementsData[category]) {
+    achievementsData[category].forEach(project => {
+      let card = document.createElement("div");
+      card.className = "bg-white p-6 rounded-lg shadow-lg text-center transition hover:scale-105 cursor-pointer";
+
+      // Project Name
+      let projectName = document.createElement("p");
+      projectName.className = "text-lg font-semibold text-gray-700";
+      projectName.textContent = project.name;
+
+      // Small Text for Project Details
+      let projectDetails = document.createElement("p");
+      projectDetails.className = "text-sm text-gray-500 mt-2";
+      projectDetails.textContent = project.details;
+
+      // Project Image
+      let projectImg = document.createElement("img");
+      projectImg.src = `assets/img/projects/${project.img}`; 
+      projectImg.alt = project.name;
+      projectImg.className = "mt-4 w-full h-40 object-cover rounded-lg";
+      projectImg.onerror = function () {
+        this.onerror = null;
+        this.src = "assets/img/default-placeholder.png"; 
       };
 
-function showAchievements() {
+      // Append elements
+      card.appendChild(projectName);
+      card.appendChild(projectDetails);
+      card.appendChild(projectImg);
+
+      // ✅ Add click event to open modal
+      /*
+      card.addEventListener("click", () => {
+        openModal(project.name, project.details, project.img);
+      });
+      */
+      card.addEventListener("click", () => {
+  openModal(project.name, project.modalDetails, project.img);
+});
+
+
+      // Append card to container
+      container.appendChild(card);
+    });
+
+    container.classList.remove("hidden");
+  } else {
+    container.classList.add("hidden");
+  }
+}
+
+      /*
+      function showAchievements() {
+
+
+
     const category = document.getElementById("categorySelect").value;
     const container = document.getElementById("achievementsContainer");
 
@@ -940,7 +1340,7 @@ function showAchievements() {
         container.classList.add("hidden");
     }
 }
-
+*/
      </script>
   </body>
 
@@ -1142,7 +1542,7 @@ function showAchievements() {
             <i class="bi bi-telephone fs-4 text-primary me-3"></i>
             <div>
               <strong>Call:</strong>
-              <p class="mb-0"> +1 901 697 0621 </p>
+              <p class="mb-0"> +20 10 63965222 </p>
             </div>
           </div>
         </div>
